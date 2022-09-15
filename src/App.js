@@ -1,24 +1,25 @@
-import logo from './logo.svg';
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import './App.css';
+import SignupPage from './Views/SignupPage';
+import ProfilePage from './Views/ProfilePage';
+import TranslatePage from './Views/TranslatePage';
 
 function App() {
+
   return (
-    <div className="App">
+    <BrowserRouter>
+      <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+          <h2>Lost in Translation</h2>
+        </header>
+        {/*Fix me routing error*/}
+        <Routes>
+        <Route path= '/' element={ <SignupPage /> } />
+        <Route path='/Profile' element={ <ProfilePage /> } />
+        <Route path='/Translate' element={ <TranslatePage /> } />
+        </Routes>
+      </div>
+    </BrowserRouter>
   );
 }
 
