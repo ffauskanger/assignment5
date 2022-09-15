@@ -9,3 +9,5 @@ const TranslatePage = () => {
         </>
     );
 }
+
+export default TranslatePage;
