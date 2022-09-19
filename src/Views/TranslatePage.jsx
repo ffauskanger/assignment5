@@ -1,4 +1,4 @@
-
+import TranslateForm from "../Component/Translate/TranslateForm";
 
 const TranslatePage = () => {
     // Local handling of translation
@@ -6,6 +6,7 @@ const TranslatePage = () => {
 
     return (
         <>
+            <TranslateForm/>
         </>
     );
 }
