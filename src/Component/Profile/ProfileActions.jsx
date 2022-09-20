@@ -1,5 +1,6 @@
 import { deleteTranslations } from "../../api/translations";
-import { storageSave, storageDelete } from "../../utils/storageSave";
+import { STORAGE_KEY_USER } from "../../const/storageKeys";
+import { storageSave, storageDelete } from "../../utils/storage";
 
 function ProfileActions({profile, setProfile}) {
     async function handleClearTranslations()
@@ -10,7 +11,7 @@ function ProfileActions({profile, setProfile}) {
             if(error == null)
             {
                 setProfile(result)
-                storageSave('translation-user', result)
+                storageSave(STORAGE_KEY_USER, result)
             }
             else
                 console.log(error)
@@ -18,7 +19,7 @@ function ProfileActions({profile, setProfile}) {
     }
     function handleLogout()
     {
-        storageDelete('translation-user')
+        storageDelete(STORAGE_KEY_USER)
         setProfile(null)
     }
 

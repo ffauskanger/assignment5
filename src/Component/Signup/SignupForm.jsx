@@ -2,8 +2,9 @@ import { useState, useEffect } from 'react'
 import { useForm } from 'react-hook-form'
 import { useNavigate } from 'react-router-dom'
 import { loginUser } from '../../api/user'
+import { STORAGE_KEY_USER } from '../../const/storageKeys';
 import { useProfile } from '../../Context/ProfileContext';
-import { storageSave } from '../../utils/storageSave'
+import { storageSave } from '../../utils/storage'
 
 /* const usernameConfig = () => {
 
@@ -37,11 +38,9 @@ function SignupForm() {
         }
         if (userObj != null) {
             setProfile(userObj)
-            storageSave('translation-user', userObj)
+            storageSave(STORAGE_KEY_USER, userObj)
         }
         setLoading(false)
-        console.log(error)
-        
     }
 
     const errorMessage = (() => {
@@ -57,7 +56,6 @@ function SignupForm() {
                 <button type='submit' className="btn">Enter</button>
                 {loading && <p>Logging in...</p>}
             </form>
-            
         </>
     );
 }

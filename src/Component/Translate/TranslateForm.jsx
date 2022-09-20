@@ -2,19 +2,20 @@ import { useState } from 'react';
 import { getPublicImagePath } from './imageMap';
 import { useForm } from 'react-hook-form'
 import { addTranslation } from '../../api/translations';
-import { storageSave } from '../../utils/storageSave';
+import { storageSave } from '../../utils/storage';
+import { STORAGE_KEY_USER } from '../../const/storageKeys';
 
-function TranslateForm(profile, setProfile) {
+function TranslateForm({profile, setProfile}) {
     const { register, handleSubmit, formState: { errors } } = useForm()
     const [imagesToRender, setImagesToRender] = useState([])
 
     async function handleOnSubmit(data) {
-        setImagesToRender([...data.translate.replace(/[^A-Za-z]/gi, '')])
+        setImagesToRender([...data.translate.replace(/[\ ]/gi, '').toLowerCase()])
         const [error, result] = await addTranslation(profile,data.translate);
         if(error == null)
         {
             setProfile(result)
-            storageSave('translation-user', result)
+            storageSave(STORAGE_KEY_USER, result)
         }
         else
             console.log(error)
@@ -32,6 +33,7 @@ function TranslateForm(profile, setProfile) {
                     {...register('translate', 
                     {required: true}
                     )}/>
+                    {errors.translate && <p>You must input something</p>}
                 <button type='submit'>Submit</button>
             </form>
             {
