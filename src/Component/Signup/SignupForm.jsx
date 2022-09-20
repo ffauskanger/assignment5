@@ -23,7 +23,6 @@ function SignupForm() {
         
         if (profile !== null) {
             console.log("User has changed", profile.username, profile.id) // says user has changed at loading
-            console.log(profile);
             navigate('/Profile')
             
         }
@@ -33,7 +32,7 @@ function SignupForm() {
         setLoading(true)
         console.log(data.username)
         const [error, userObj ] = await loginUser(data.username)
-        if (error != null) {
+        if (error  != null) {
             setApiError(error)
         }
         if (userObj != null) {
