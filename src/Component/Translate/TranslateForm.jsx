@@ -9,9 +9,10 @@ function TranslateForm({profile, setProfile}) {
     const { register, handleSubmit, formState: { errors } } = useForm()
     const [imagesToRender, setImagesToRender] = useState([])
 
+    /** Handles the data and sets profile and storage, or logs error */
     async function handleOnSubmit(data) {
-        setImagesToRender([...data.translate.replace(/[^A-Za-z]/gi, '').toLowerCase()])
-        const [error, result] = await addTranslation(profile,data.translate);
+        setImagesToRender([...data.translate.replace(/[^A-Za-z]/gi, '').toLowerCase()]) // Replaces invalid values and sets to lowercase
+        const [error, result] = await addTranslation(profile,data.translate); // Add actual translation
         if(error == null)
         {
             setProfile(result)
@@ -23,7 +24,7 @@ function TranslateForm({profile, setProfile}) {
 
     function handleChange(data)
     {
-        data.target.value = data.target.value.replace(/[^A-Za-z\\ ]/gi, '')
+        data.target.value = data.target.value.replace(/[^A-Za-z\\ ]/gi, '') // Replaces all invalid values
     }
 
     return (

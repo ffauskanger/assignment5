@@ -1,3 +1,4 @@
+/** Header for profile */
 function ProfileHeader({username}) {
     return (
         <>

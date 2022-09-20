@@ -11,6 +11,7 @@ import { storageSave } from '../../utils/storage'
     minLength: 3
 } 
 
+/** Handles the signup handling and rendering */
 function SignupForm() {
     const { register, handleSubmit, formState: { errors }} = useForm()
     const { profile, setProfile } = useProfile(null)
@@ -30,6 +31,7 @@ function SignupForm() {
         }
     }, [ profile, navigate ])
 
+    /** Logins or displays error */
     async function handleOnSubmit(data) {
         setLoading(true)
         console.log(data.username)

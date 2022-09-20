@@ -3,8 +3,6 @@ import { useProfile } from "../Context/ProfileContext";
 import withAuth from "../HOC/withAuth";
 
 const TranslatePage = () => {
-    // Local handling of translation
-    // POST request of translation to API
     const {profile, setProfile} = useProfile()
     return (
         <>

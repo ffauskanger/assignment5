@@ -3,8 +3,11 @@ import { deleteTranslations } from "../../api/translations";
 import { STORAGE_KEY_USER } from "../../const/storageKeys";
 import { storageSave, storageDelete } from "../../utils/storage";
 
+/** Handles all the profile actions and UI rendering*/
 function ProfileActions({profile, setProfile}) {
     const navigate = useNavigate()
+
+    /** Clears transactions for the user*/
     async function handleClearTranslations()
     {
         if(profile.translations.length > 0)
@@ -19,11 +22,14 @@ function ProfileActions({profile, setProfile}) {
                 console.log(error)
         }
     }
+    /** Handles the logout for the user, clears storage and profile */
     function handleLogout()
     {
         storageDelete(STORAGE_KEY_USER)
         setProfile(null)
     }
+
+    /** Redirects to translate page */
     function redirectToTranslate() {
         navigate('/translate')
     }

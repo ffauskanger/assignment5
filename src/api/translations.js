@@ -2,6 +2,7 @@ import { createHeaders } from  './index.js'
 
 const apiUrl = process.env.REACT_APP_API_URL
 
+/** (PATCH)es an translation to a user (adding)*/
 export const addTranslation = async (user, translation) => {
     try {
         const response = await fetch(`${apiUrl}/${user.id}`, {
@@ -22,6 +23,7 @@ export const addTranslation = async (user, translation) => {
     }
 }
 
+/** (PATCH) translations to an empty array */
 export const deleteTranslations = async (user) => {
     try {
         const response = await fetch(`${apiUrl}/${user.id}`, {
