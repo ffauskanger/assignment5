@@ -1,4 +1,4 @@
-import { Navigate, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { deleteTranslations } from "../../api/translations";
 import { STORAGE_KEY_USER } from "../../const/storageKeys";
 import { storageSave, storageDelete } from "../../utils/storage";

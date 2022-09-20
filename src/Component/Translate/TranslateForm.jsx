@@ -23,7 +23,7 @@ function TranslateForm({profile, setProfile}) {
 
     function handleChange(data)
     {
-        data.target.value = data.target.value.replace(/[^A-Za-z\ ]/gi, '')
+        data.target.value = data.target.value.replace(/[^A-Za-z\\ ]/gi, '')
     }
 
     return (
