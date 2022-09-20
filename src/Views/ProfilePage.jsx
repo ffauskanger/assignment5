@@ -5,10 +5,6 @@ import { useProfile } from "../Context/ProfileContext";
 import withAuth from "../HOC/withAuth";
 
 const ProfilePage = () => {
-    // GET request for user id and display translate history from said user
-
-    // variables & states
-    // userState(?), user variable, 
     const {profile, setProfile} = useProfile()
     return (
         <>
