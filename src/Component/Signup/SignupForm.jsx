@@ -6,9 +6,10 @@ import { STORAGE_KEY_USER } from '../../const/storageKeys';
 import { useProfile } from '../../Context/ProfileContext';
 import { storageSave } from '../../utils/storage'
 
-/* const usernameConfig = () => {
-
-} */
+ const usernameConfig = {
+    required: true,
+    minLength: 3
+} 
 
 function SignupForm() {
     const { register, handleSubmit, formState: { errors }} = useForm()
@@ -44,7 +45,16 @@ function SignupForm() {
     }
 
     const errorMessage = (() => {
+        if(!errors.username )
+        {
+            return null
+        }
 
+        if(errors.username.type === 'type')
+            return <p>Username is required</p>
+
+        if(errors.username.type === 'minLength')
+            return<p>Username is too short(minium 3)</p>
     })
 
 
@@ -52,9 +62,12 @@ function SignupForm() {
         <>
             <form onSubmit={handleSubmit(handleOnSubmit)}>
                 <input label="signup" name="SignupInput" placeholder="Name"
-                {...register('username', {required: 'A name is required'})}></input>
+                {...register('username', usernameConfig)}></input>
                 <button type='submit' className="btn">Login</button>
                 {loading && <p>Logging in...</p>}
+                { (errors.username && errors.username.type === 'required') && errorMessage()}
+                { (errors.username && errors.username.type === 'minLength') && errorMessage()} 
+                { apiError && <p>{apiError}</p>}
             </form>
         </>
     );

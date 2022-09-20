@@ -34,6 +34,10 @@ body {
   color: #61dafb;
 }
 
+ul {
+  list-style-position: inside;
+}
+
 input {
   transition: 0.8s;
   size-adjust: 4rem;
@@ -81,10 +85,6 @@ button {
   padding-top: 14vh;
   min-height: 20vh;
   background-color: #FFC75F;
-}
-
-li {
-  
 }
 
 .translateForm {

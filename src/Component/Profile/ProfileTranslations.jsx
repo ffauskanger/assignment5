@@ -3,6 +3,7 @@ function ProfileTranslations({translations}) {
         <>
             <section>
                 <h4>Your last ten translations</h4>
+                {translations.length === 0 && <p>You have no translations</p>}
                 <ul>
                 {
                 
