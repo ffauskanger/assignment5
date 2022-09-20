@@ -7,14 +7,22 @@ function TranslateForm() {
     const [imagesToRender, setImagesToRender] = useState([])
 
     function handleOnSubmit(data) {
-        setImagesToRender([...data.translate.replace(/[^a-z0-9]/gi, '')])
+        console.log(data.translate); // POST msg
+        setImagesToRender([...data.translate.replace(/[^A-Za-z]/gi, '')])
+    }
+
+    function handleChange(data)
+    {
+        data.target.value = data.target.value.replace(/[^A-Za-z\ ]/gi, '')
     }
 
     return (
         <>
-            <form onSubmit={handleSubmit(handleOnSubmit)}>
+            <form onSubmit={handleSubmit(handleOnSubmit)} onChange={handleChange}>
                 <input type="text" placeholder='What do you want translated?'
-                    {...register('translate', {required: 'Add translation!'})}/>
+                    {...register('translate', 
+                    {required: true}
+                    )}/>
                 <button type='submit'>Submit</button>
             </form>
             {
