@@ -1,14 +1,23 @@
 import { useState } from 'react';
 import { getPublicImagePath } from './imageMap';
 import { useForm } from 'react-hook-form'
+import { addTranslation } from '../../api/translations';
+import { storageSave } from '../../utils/storageSave';
 
-function TranslateForm() {
+function TranslateForm(profile, setProfile) {
     const { register, handleSubmit, formState: { errors } } = useForm()
     const [imagesToRender, setImagesToRender] = useState([])
 
-    function handleOnSubmit(data) {
-        console.log(data.translate); // POST msg
+    async function handleOnSubmit(data) {
         setImagesToRender([...data.translate.replace(/[^A-Za-z]/gi, '')])
+        const [error, result] = await addTranslation(profile,data.translate);
+        if(error == null)
+        {
+            setProfile(result)
+            storageSave('translation-user', result)
+        }
+        else
+            console.log(error)
     }
 
     function handleChange(data)

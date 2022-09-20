@@ -1,4 +1,5 @@
 import { useState, createContext, useContext } from "react"
+import { storageRead } from "../utils/storageSave";
 
 export const ProfileContext = createContext(null)
 
@@ -9,7 +10,7 @@ export const useProfile = () => {
 
 const ProfileProvider = ({ children }) => {
 
-    const [profile, setProfile] = useState(null)
+    const [profile, setProfile] = useState(storageRead('translation-user'))
 
     const state = {
         profile,

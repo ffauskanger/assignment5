@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import { useForm } from 'react-hook-form'
 import { useNavigate } from 'react-router-dom'
 import { loginUser } from '../../api/user'
-import { useProfile } from '../../HOC/ProfileContext'
+import { useProfile } from '../../Context/ProfileContext';
 import { storageSave } from '../../utils/storageSave'
 
 /* const usernameConfig = () => {
@@ -23,7 +23,7 @@ function SignupForm() {
         
         if (profile !== null) {
             console.log("User has changed", profile.username, profile.id) // says user has changed at loading
-            navigate('/Profile')
+            navigate('/Translate')
             
         }
     }, [ profile, navigate ])
