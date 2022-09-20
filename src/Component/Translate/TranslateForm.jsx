@@ -10,7 +10,7 @@ function TranslateForm({profile, setProfile}) {
     const [imagesToRender, setImagesToRender] = useState([])
 
     async function handleOnSubmit(data) {
-        setImagesToRender([...data.translate.replace(/[\ ]/gi, '').toLowerCase()])
+        setImagesToRender([...data.translate.replace(/[^A-Za-z]/gi, '').toLowerCase()])
         const [error, result] = await addTranslation(profile,data.translate);
         if(error == null)
         {
@@ -28,22 +28,24 @@ function TranslateForm({profile, setProfile}) {
 
     return (
         <>
-            <form onSubmit={handleSubmit(handleOnSubmit)} onChange={handleChange}>
+            <form onSubmit={handleSubmit(handleOnSubmit)} onChange={handleChange} className="translateForm">
                 <input type="text" placeholder='What do you want translated?'
                     {...register('translate', 
                     {required: true}
                     )}/>
-                    {errors.translate && <p>You must input something</p>}
                 <button type='submit'>Submit</button>
+                {errors.translate && <p>You must input something</p>}
             </form>
-            {
-                
-                imagesToRender.map( (item, index) => {
-                    return (
-                        <img src={ getPublicImagePath(item) } alt={`img${index}`} key={index} />
-                    )
-                })
-            }
+            <div className='images'>
+                {
+                    
+                    imagesToRender.map( (item, index) => {
+                        return (
+                            <img src={ getPublicImagePath(item) } alt={`img${index}`} key={index} />
+                        )
+                    })
+                }
+            </div>
         </>
     );
 }

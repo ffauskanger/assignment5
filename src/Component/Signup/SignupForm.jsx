@@ -53,7 +53,7 @@ function SignupForm() {
             <form onSubmit={handleSubmit(handleOnSubmit)}>
                 <input label="signup" name="SignupInput" placeholder="Name"
                 {...register('username', {required: 'A name is required'})}></input>
-                <button type='submit' className="btn">Enter</button>
+                <button type='submit' className="btn">Login</button>
                 {loading && <p>Logging in...</p>}
             </form>
         </>

@@ -14,46 +14,125 @@
 }
 
 .App-header {
-  background-color: #282c34;
-  min-height: 20vh;
+  background-color: #FFC75F;
+  min-height: 10vh;
   min-width: 100%;
   display: flex;
-  /* float: inline-start; */
-  /* position: absolute; */
   flex-direction: row;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: white;
+  font-family: "https://fonts.google.com/specimen/Love+Ya+Like+A+Sister?query=Love+Ya+Like+a+sister";
+  color: black;
+}
+
+body {
+  font-family: "https://fonts.google.com/specimen/Sanchez?query=Sanchez";
 }
 
 .App-link {
   color: #61dafb;
 }
 
-div {
-  display: flex;
-  flex-direction: column;
+input {
+  transition: 0.8s;
+  size-adjust: 4rem;
+  height: 30px;
+  width: 50%;
   text-align: center;
-  align-content: center;
+  padding: 10px 50px;
+  border-radius: 30px;
+  border-top-right-radius: 0%;
+  border-bottom-right-radius: 0%;
+  align-items: center;
+  background: #fff;
+  justify-content: center;
+  cursor: pointer;  
 }
 
-.signupFormContainer {
-  width: 25vw;
-  height: 10vh;
-  display: inline-flex;
-  flex-direction: column;
-  position: relative;
-  text-align: center;
-}
-
-.signupSides {
-  min-width: 25vw;
-}
-
-.btnSignup {
-  width: 33px;
-  height: 33px;
-  border-radius: 66%;
+button {
+  width: 70px;
+  height: 50px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  border-radius: 30px;
+  border-top-left-radius: 0px;
+  border-bottom-left-radius: 0px;
   background-color: purple;
+  color: #fff;
+}
+
+.profileBtn {
+  border-radius: 25%;
+  margin: auto;
+  text-align: center;
+  width: 10rem;
+}
+
+.profilBtnContainer {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  flex-direction: row;
+}
+
+.signupForm {
+  
+  padding-top: 14vh;
+  min-height: 20vh;
+  background-color: #FFC75F;
+}
+
+li {
+  
+}
+
+.translateForm {
+  padding-top: 7rem;
+  min-height: 4rem;
+  min-width: 10rem;
+}
+
+.images {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  flex-direction: row;
+}
+
+img {
+  
+  width: 6vw;
+  aspect-ratio: 1/1;
+}
+
+.profileHeaderCard {
+  border: 1px solid white;
+  width: 22vw;
+  aspect-ratio: 5 / 3;  
+  font-size: 1.5rem;
+
+}
+.header-spacing {
+  width: 50%;
+  display: inline-flex;
+}
+
+
+.profileCard {
+  
+  
+  position: absolute;
+  top: 0;
+  right: 0;
+  font-size: medium;  
+  background-color: #E7B355;
+  border: 2px solid whitesmoke;
+  min-width: 8vw;
+  padding-left: 1vw;
+  padding-right: 1vw;
+  padding-top: 0.5vh;
+  padding-bottom: 0.5vh;
+  border-radius: 44%;
+  user-select: none;
 }

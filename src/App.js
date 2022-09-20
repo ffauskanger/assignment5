@@ -4,15 +4,17 @@ import ProfilePage from './Views/ProfilePage';
 import TranslatePage from './Views/TranslatePage';
 import SignupPage from './Views/SignupPage';
 import NotFound from './Views/NotFound';
+import ProfileHeaderCard from './Component/ProfileHeaderCard';
 
 function App() {
-  console.log(process.env.REACT_APP_API_KEY)
+  
 
   return (
     <BrowserRouter>
       <div className="App">
-      <header className="App-header">
+        <header className="App-header">
           <h2>Lost in Translation</h2>
+          <ProfileHeaderCard />
         </header>
         <Routes>
         <Route path= '/' element={ <SignupPage /> } />

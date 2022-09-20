@@ -5,7 +5,6 @@ import { storageRead } from "../utils/storage";
 export const ProfileContext = createContext(null)
 
 export const useProfile = () => {
-    console.log('context change!');
     return useContext(ProfileContext) // reads { user, setUser }
 }
 

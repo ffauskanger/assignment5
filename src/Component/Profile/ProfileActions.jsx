@@ -1,8 +1,10 @@
+import { Navigate, useNavigate } from "react-router-dom";
 import { deleteTranslations } from "../../api/translations";
 import { STORAGE_KEY_USER } from "../../const/storageKeys";
 import { storageSave, storageDelete } from "../../utils/storage";
 
 function ProfileActions({profile, setProfile}) {
+    const navigate = useNavigate()
     async function handleClearTranslations()
     {
         if(profile.translations.length > 0)
@@ -22,12 +24,18 @@ function ProfileActions({profile, setProfile}) {
         storageDelete(STORAGE_KEY_USER)
         setProfile(null)
     }
+    function redirectToTranslate() {
+        navigate('/translate')
+    }
 
     return (
         <>
-            <h1>Actions</h1>
-            <button onClick={handleClearTranslations}>Clear translation history</button>
-            <button onClick={handleLogout}>Logout</button>
+            <div className="profileBtnContainer">
+                <button className="profileBtn" onClick={redirectToTranslate}>Translate</button>
+                <button className="profileBtn" onClick={handleClearTranslations}>Clear translation history</button>
+                <button className="profileBtn" onClick={handleLogout}>Logout</button>
+            </div>
+            
         </>
     );
 }
